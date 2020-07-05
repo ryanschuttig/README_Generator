@@ -1,7 +1,9 @@
+// GLOBALS
 const inquirer = require("inquirer");
 const fs = require("fs");
-const util = require("util");
 const generateMarkdown = require("./utils/generateMarkdown");
+
+const writeFileAsync = util.promisify(fs.writeFile);
 
 // prompt questions for user
 function promptUser() {
@@ -57,26 +59,27 @@ function promptUser() {
         },
     ])
 }
+// function to initialize program
+async function init() {
 
-promptUser()
-    .then(function(data){
-        const markdown = generateMarkdown(data);
-        fs.writeFile("README.md", markdown, function(err){
-            if (err){
-                throw err;
-            }
-            console.log("README.md successfully generated.");
-        })
-    })
+    // function to write README file
+    try {
+        const answers = await promptUser();
 
-// function to write README file
-// function writeToFile(fileName, data) {
-// }
+        const markdown = generateMarkdown(answers);
 
-// // function to initialize program
-// function init() {
+        await writeFileAsync("READMEGEN.md", markdown);
 
-// }
+        console.log("Successfully generated README.md");
+    } catch (err) {
+        console.log(err);
+    }
+}
 
-// // function call to initialize program
-// init();
+// function to initialize program
+function init() {
+    prompt();
+}
+
+// function call to initialize program
+init();
