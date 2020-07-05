@@ -58,14 +58,25 @@ function promptUser() {
     ])
 }
 
+promptUser()
+    .then(function(data){
+        const markdown = generateMarkdown(data);
+        fs.writeFile("README.md", markdown, function(err){
+            if (err){
+                throw err;
+            }
+            console.log("README.md successfully generated.");
+        })
+    })
+
 // function to write README file
-function writeToFile(fileName, data) {
-}
+// function writeToFile(fileName, data) {
+// }
 
-// function to initialize program
-function init() {
+// // function to initialize program
+// function init() {
 
-}
+// }
 
-// function call to initialize program
-init();
+// // function call to initialize program
+// init();
