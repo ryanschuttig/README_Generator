@@ -1,6 +1,7 @@
 // GLOBALS
 const inquirer = require("inquirer");
 const fs = require("fs");
+const util = require("util");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -8,16 +9,6 @@ const writeFileAsync = util.promisify(fs.writeFile);
 // prompt questions for user
 function promptUser() {
     return inquirer.prompt([
-        {
-            type: "input",
-            name: "githubname",
-            message: "What is your GitHub username?",
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "What is you email address?",
-        },
         {
             type: "input",
             name: "projectname",
@@ -54,8 +45,13 @@ function promptUser() {
         },
         {
             type: "input",
-            name: "info",
-            message: "Please list any other information here.",
+            name: "github",
+            message: "What is your Github username?",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your email?",
         },
     ])
 }
@@ -70,16 +66,16 @@ async function init() {
 
         await writeFileAsync("READMEGEN.md", markdown);
 
-        console.log("Successfully generated README.md");
+        console.log("Successfully generated READMEGEN.md");
     } catch (err) {
         console.log(err);
     }
 }
 
-// function to initialize program
-function init() {
-    prompt();
-}
+// // function to initialize program
+// function init() {
+//     prompt();
+// }
 
 // function call to initialize program
 init();
