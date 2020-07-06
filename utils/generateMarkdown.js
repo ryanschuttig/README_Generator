@@ -19,8 +19,6 @@ function generateMarkdown(answers) {
   ${answers.install}
   ## License
   ${answers.license}
-  ## Contributions
-  ${answers.contribute}
   ## Testing
   ${answers.test}
   ## Questions

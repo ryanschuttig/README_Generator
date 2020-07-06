@@ -35,11 +35,6 @@ function promptUser() {
         },
         {
             type: "input",
-            name: "contribute",
-            message: "Do you have any contributors to your project?",
-        },
-        {
-            type: "input",
             name: "test",
             message: "Do you have any test instructions?",
         },
@@ -71,11 +66,6 @@ async function init() {
         console.log(err);
     }
 }
-
-// // function to initialize program
-// function init() {
-//     prompt();
-// }
 
 // function call to initialize program
 init();
