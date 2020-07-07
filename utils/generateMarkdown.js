@@ -7,8 +7,7 @@ function generateMarkdown(answers) {
   - [Description](#Description)
   - [Installation](#Installation)
   - [License](#License)
-  - [Contributing](#Contributing)
-  - [Test](#test)
+  - [Testing](#test)
   - [Questions](#Questions)
 
   ## Title
