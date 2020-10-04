@@ -16,9 +16,6 @@
 ## License
 ### When using the README_Generator, you can choose from a list of licenses and this will generate a badge for you!
 
-## Testing
-### You can use testing as a demo for users.
-
 ## Questions
 ### If you have any questions, email me at ryanschuttig@gmail.com, or visit my GitHub page at https://github.com/ryanschuttig.
 
